@@ -57,7 +57,7 @@ export const PlayerCard: React.FC<Props> = ({
         };
       }
       return plr;
-    });
+    })
 
     setPlayers(updatedPlayers);
     localStorage.setItem("players", JSON.stringify(updatedPlayers));
