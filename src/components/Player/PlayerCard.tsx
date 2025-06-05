@@ -44,6 +44,13 @@ export const PlayerCard: React.FC<Props> = ({
   const handleGameScore = (count: GameScore) => {
     const updatedPlayers = players.map((plr) => {
       if (plr.id === player.id) {
+        if (plr.gameScore + count === 125) {
+           return {
+          ...plr,
+          gameScore: 0,
+        };
+        }
+
         return {
           ...plr,
           gameScore: plr.gameScore + count,
@@ -51,6 +58,7 @@ export const PlayerCard: React.FC<Props> = ({
       }
       return plr;
     });
+
     setPlayers(updatedPlayers);
     localStorage.setItem("players", JSON.stringify(updatedPlayers));
   };
