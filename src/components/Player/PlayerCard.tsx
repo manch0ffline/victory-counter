@@ -1,10 +1,10 @@
-import type React from "react";
-import type { PlayerType } from "../../types/PlayerType";
-import { Loader } from "../Loader/Loader";
-import { useState } from "react";
-import { NumberOfWinsEnum } from "../../types/NumberOfWins";
-import { GameScore } from "../../types/GameScore";
-import { WindowOfDelete } from "../WindowOfDelete/WindowOfDelete";
+import type React from 'react';
+import type { PlayerType } from '../../types/PlayerType';
+import { Loader } from '../Loader/Loader';
+import { useState } from 'react';
+import { NumberOfWinsEnum } from '../../types/NumberOfWins';
+import { GameScore } from '../../types/GameScore';
+import { WindowOfDelete } from '../WindowOfDelete/WindowOfDelete';
 
 type Props = {
   player: PlayerType;
@@ -28,7 +28,7 @@ export const PlayerCard: React.FC<Props> = ({
         return {
           ...plr,
           numberOfWins:
-            type === "plus"
+            type === 'plus'
               ? plr.numberOfWins + 1
               : Math.max(plr.numberOfWins - 1, 0),
           gameScore: 0,
@@ -38,17 +38,17 @@ export const PlayerCard: React.FC<Props> = ({
       return { ...plr, gameScore: 0 };
     });
     setPlayers(updatedPlayers);
-    localStorage.setItem("players", JSON.stringify(updatedPlayers));
+    localStorage.setItem('players', JSON.stringify(updatedPlayers));
   };
 
   const handleGameScore = (count: GameScore) => {
     const updatedPlayers = players.map((plr) => {
       if (plr.id === player.id) {
         if (plr.gameScore + count === 125) {
-           return {
-          ...plr,
-          gameScore: 0,
-        };
+          return {
+            ...plr,
+            gameScore: 0,
+          };
         }
 
         return {
@@ -57,10 +57,10 @@ export const PlayerCard: React.FC<Props> = ({
         };
       }
       return plr;
-    })
+    });
 
     setPlayers(updatedPlayers);
-    localStorage.setItem("players", JSON.stringify(updatedPlayers));
+    localStorage.setItem('players', JSON.stringify(updatedPlayers));
   };
 
   const deletePlayer = (playerId: number) => {
@@ -70,10 +70,10 @@ export const PlayerCard: React.FC<Props> = ({
     setTimeout(() => {
       setPlayers((prev: PlayerType[]) => prev.filter((p) => p.id !== playerId));
 
-      localStorage.setItem("players", JSON.stringify(filteredPlayers));
+      localStorage.setItem('players', JSON.stringify(filteredPlayers));
 
       if (filteredPlayers.length === 0) {
-        setErrorMesage("Игроки не найдены");
+        setErrorMesage('Игроки не найдены');
       }
       setIsDeleting(false);
     }, 500);
@@ -109,16 +109,17 @@ export const PlayerCard: React.FC<Props> = ({
             <h3 className="player__h3">Количесто побед:</h3>
             <div className="player__number-of-wins__container">
               <i
-                className="fa-regular fa-circle-down player__icon"
-                onClick={() => {
-                  handleNumberOfWins(NumberOfWinsEnum.minus);
-                }}
-              ></i>
-              {player.numberOfWins}
-              <i
                 className="fa-regular fa-circle-up player__icon"
                 onClick={() => {
                   handleNumberOfWins(NumberOfWinsEnum.plus);
+                }}
+              ></i>
+              {player.numberOfWins}
+
+              <i
+                className="fa-regular fa-circle-down player__icon"
+                onClick={() => {
+                  handleNumberOfWins(NumberOfWinsEnum.minus);
                 }}
               ></i>
             </div>
@@ -136,7 +137,7 @@ export const PlayerCard: React.FC<Props> = ({
                 type="button"
                 className="player__add-button"
                 onClick={() => {
-                  handleGameScore(GameScore["plus-10"]);
+                  handleGameScore(GameScore['plus-10']);
                 }}
               >
                 +10
@@ -145,7 +146,7 @@ export const PlayerCard: React.FC<Props> = ({
                 type="button"
                 className="player__add-button"
                 onClick={() => {
-                  handleGameScore(GameScore["plus-15"]);
+                  handleGameScore(GameScore['plus-15']);
                 }}
               >
                 +15
@@ -154,7 +155,7 @@ export const PlayerCard: React.FC<Props> = ({
                 type="button"
                 className="player__add-button"
                 onClick={() => {
-                  handleGameScore(GameScore["plus-20"]);
+                  handleGameScore(GameScore['plus-20']);
                 }}
               >
                 +20
@@ -163,7 +164,7 @@ export const PlayerCard: React.FC<Props> = ({
                 type="button"
                 className="player__add-button"
                 onClick={() => {
-                  handleGameScore(GameScore["minus-20"]);
+                  handleGameScore(GameScore['minus-20']);
                 }}
               >
                 -20
