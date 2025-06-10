@@ -1,33 +1,45 @@
 .player {
   position: relative;
   width: 100%;
-  padding: 15px;
+  padding: 20px;
   color: $text-color;
-  background-color: $background-card;
-  border-radius: 2px;
+  background: #1a2331;
+  background: linear-gradient(135deg, rgb(22, 30, 43) 0%, rgb(13, 20, 32) 50%);
+  border-radius: 17px;
+  border: 0.5px solid #38383b;
+  box-shadow: 0px 0px 20px 2px #0102109f;
+
   display: flex;
   flex-direction: column;
   gap: 20px;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-optical-sizing: auto;
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
 
   &__top {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    & span {
+      font-size: 20px;
+      font-family: 'Rubik', sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 500;
+      font-style: normal;
+    }
   }
 
   &__h3 {
-    color: $text-color-grey;
+    color: $color-grey;
   }
 
   &__name {
-    font-size: 25px;
+    font-size: 28px;
     color: $text-color;
-    font-weight: 600;
+    font-weight: 700;
   }
 
   &__number-of-wins {
@@ -36,9 +48,9 @@
     justify-content: space-between;
 
     &__container {
-      display: flex;  
-      width: 25%;
-     justify-content: space-between;
+      display: flex;
+      width: 30%;
+      justify-content: space-between;
       font-size: 20px;
     }
   }
@@ -71,14 +83,17 @@
 
   &__add-button {
     width: 20%;
-    height: 30px;
+    height: 27px;
     border: 0;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 18px;
-    background-color: $button-color;
+    background-color: $green;
     color: $text-color;
-    border: 0.5px solid $text-color;
     transition: transform 0.1s ease;
+
+    &--minus {
+      background-color: $red;
+    }
 
     &:active {
       transform: scale(0.8);

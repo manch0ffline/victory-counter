@@ -162,7 +162,7 @@ export const PlayerCard: React.FC<Props> = ({
               </button>
               <button
                 type="button"
-                className="player__add-button"
+                className="player__add-button player__add-button--minus"
                 onClick={() => {
                   handleGameScore(GameScore['minus-20']);
                 }}
