@@ -51,13 +51,36 @@
       display: flex;
       width: 30%;
       justify-content: space-between;
+      align-items: center;
       font-size: 20px;
     }
   }
 
   &__icon {
     font-size: 20px;
+    height: 24px;
+    width: 24px;
     transition: all 0.1s ease;
+
+    &--plus {
+      background-image: url('/src/imgs/icons/icons8-plus.svg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    &--minus {
+      background-image: url('/src/imgs/icons/icons8-minus-100.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    &--close {
+      height: 20px;
+      width: 20px;
+      background-image: url('/src/imgs/icons/icons8-close.svg');
+      background-size: cover;
+      background-position: center;
+    }
 
     &:active {
       transform: scale(0.8);

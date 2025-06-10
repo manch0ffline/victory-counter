@@ -97,31 +97,31 @@ export const PlayerCard: React.FC<Props> = ({
         <div className="player">
           <div className="player__top">
             <div className="player__name">{player.name}</div>
-            <i
-              className="fa-regular fa-circle-xmark player__icon"
+            <div
+              className="player__icon player__icon--close"
               onClick={() => {
                 setWindowOfDelete(true);
               }}
-            ></i>
+            ></div>
           </div>
 
           <div className="player__number-of-wins">
             <h3 className="player__h3">Количесто побед:</h3>
             <div className="player__number-of-wins__container">
-              <i
-                className="fa-regular fa-circle-up player__icon"
+              <div
+                className="player__icon player__icon--plus"
                 onClick={() => {
                   handleNumberOfWins(NumberOfWinsEnum.plus);
                 }}
-              ></i>
+              ></div>
               {player.numberOfWins}
 
-              <i
-                className="fa-regular fa-circle-down player__icon"
+              <div
+                className="player__icon player__icon--minus"
                 onClick={() => {
                   handleNumberOfWins(NumberOfWinsEnum.minus);
                 }}
-              ></i>
+              ></div>
             </div>
           </div>
 
